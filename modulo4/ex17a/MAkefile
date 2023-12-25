@@ -1,0 +1,15 @@
+# A simple Makefile
+prog_greater_date: greater_date.o main.o
+	gcc greater_date.o main.o -o prog_greater_date
+
+greater_date.o: greater_date.c
+	gcc -g -Wall -Wextra -fanalyzer -c greater_date.c -o greater_date.o
+	
+main.o: main.c
+	gcc -g -Wall -Wextra -fanalyzer -c main.c -o main.o
+
+clean:
+	rm -f *.o prog_greater_date
+
+run: prog_greater_date
+	./prog_greater_date
